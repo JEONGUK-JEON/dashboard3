@@ -1,4 +1,3 @@
-
 let dashboardData = null;
 let selectedEntityName = null;
 let trendChart = null;
@@ -49,7 +48,7 @@ function setText(id, value) {
 function buildEntityButtons() {
   const container = document.getElementById('entityButtons');
   container.innerHTML = '';
-  const groupOrder = ['국내', '해외', '계열'];
+  const groupOrder = ['전체', '국내', '해외', '계열'];
 
   groupOrder.forEach(group => {
     const groupEntities = dashboardData.entities.filter(e => e.group === group);
@@ -63,6 +62,7 @@ function buildEntityButtons() {
     groupEntities.forEach(entity => {
       const btn = document.createElement('button');
       btn.className = 'entity-btn';
+      if (group === '전체') btn.classList.add('total-btn');
       btn.textContent = entity.name;
       btn.dataset.entity = entity.name;
       btn.addEventListener('click', () => selectEntity(entity.name));
@@ -99,8 +99,8 @@ function renderKpis(entity) {
   setText('selectedEntityName', entity.name);
   setText('selectedEntityGroup', entity.group);
   setText('selectedMonth', latestMonth);
-  setText('latestMonthLabel', `기준월 ${latestMonth}`);
-  setText('trendSubtitle', `${entity.name} 기준 월별매출 및 12M_MA`);
+  setText('latestMonthLabel', latestMonth);
+  setText('trendSubtitle', `${entity.name} 기준 월별 매출 및 12M_MA`);
   setText('compareSubtitle', `${latestMonth} 기준 전체 법인 비교`);
 }
 
@@ -120,23 +120,23 @@ function renderTrendChart(entity) {
         {
           label: '매출',
           data: sales,
-          borderColor: '#4d8dff',
-          backgroundColor: 'rgba(77,141,255,0.18)',
-          tension: 0.25,
-          fill: true,
-          pointRadius: 2,
+          borderColor: '#2f6bff',
+          backgroundColor: 'rgba(47,107,255,0.10)',
+          tension: 0.28,
+          fill: 'origin',
+          pointRadius: 0,
           pointHoverRadius: 4,
-          borderWidth: 2.5
+          borderWidth: 3
         },
         {
           label: '12M_MA',
           data: ma12,
-          borderColor: '#13d1ba',
+          borderColor: '#11b7a4',
           backgroundColor: 'transparent',
-          tension: 0.25,
+          tension: 0.28,
           pointRadius: 0,
-          borderWidth: 2.2,
-          borderDash: [8, 6]
+          borderWidth: 2.5,
+          borderDash: [7, 5]
         }
       ]
     },
@@ -145,8 +145,12 @@ function renderTrendChart(entity) {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { labels: { color: '#d7e6ff', usePointStyle: true, boxWidth: 12 } },
+        legend: { 
+          labels: { color: '#334155', usePointStyle: true, boxWidth: 10, padding: 18 }
+        },
         tooltip: {
+          backgroundColor: 'rgba(15,23,42,0.92)',
+          padding: 12,
           callbacks: {
             label: (ctx) => `${ctx.dataset.label}: ${fmtEok(ctx.parsed.y)}`
           }
@@ -154,16 +158,16 @@ function renderTrendChart(entity) {
       },
       scales: {
         x: {
-          ticks: { color: '#9db3d4', maxRotation: 0, autoSkip: true, maxTicksLimit: 14 },
-          grid: { color: 'rgba(126,154,205,0.08)' }
+          ticks: { color: '#64748b', maxRotation: 0, autoSkip: true, maxTicksLimit: 14 },
+          grid: { color: 'rgba(148,163,184,0.12)', drawBorder: false }
         },
         y: {
-          title: { display: true, text: '억원', color: '#9db3d4' },
+          title: { display: true, text: '억원', color: '#64748b', font: { weight: '700' } },
           ticks: {
-            color: '#9db3d4',
+            color: '#64748b',
             callback: (value) => value
           },
-          grid: { color: 'rgba(126,154,205,0.10)' }
+          grid: { color: 'rgba(148,163,184,0.14)', drawBorder: false }
         }
       }
     }
@@ -172,13 +176,16 @@ function renderTrendChart(entity) {
 
 function renderBarChart() {
   const latestMonth = dashboardData.latestMonth;
-  const latestData = dashboardData.entities.map(entity => {
-    const point = getValueByMonth(entity, latestMonth);
-    return {
-      name: entity.name,
-      value: point ? point.sales_eok : 0
-    };
-  }).sort((a, b) => b.value - a.value);
+  const latestData = dashboardData.entities
+    .filter(entity => entity.name !== '연합 총계')
+    .map(entity => {
+      const point = getValueByMonth(entity, latestMonth);
+      return {
+        name: entity.name,
+        value: point ? point.sales_eok : 0
+      };
+    })
+    .sort((a, b) => b.value - a.value);
 
   const ctx = document.getElementById('barChart');
   if (barChart) barChart.destroy();
@@ -190,9 +197,11 @@ function renderBarChart() {
       datasets: [{
         label: '당월매출',
         data: latestData.map(d => d.value),
-        backgroundColor: latestData.map(d => d.name === selectedEntityName ? 'rgba(59,130,246,0.85)' : 'rgba(20,200,181,0.65)'),
+        backgroundColor: latestData.map(d => d.name === selectedEntityName ? 'rgba(47,107,255,0.88)' : 'rgba(15,184,165,0.62)'),
+        borderColor: latestData.map(d => d.name === selectedEntityName ? 'rgba(47,107,255,1)' : 'rgba(15,184,165,0.75)'),
+        borderWidth: 1,
         borderRadius: 10,
-        maxBarThickness: 32
+        maxBarThickness: 34
       }]
     },
     options: {
@@ -201,20 +210,19 @@ function renderBarChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          callbacks: {
-            label: (ctx) => ` ${fmtEok(ctx.parsed.y)}`
-          }
+          backgroundColor: 'rgba(15,23,42,0.92)',
+          callbacks: { label: (ctx) => ` ${fmtEok(ctx.parsed.y)}` }
         }
       },
       scales: {
         x: {
-          ticks: { color: '#9db3d4', autoSkip: false, minRotation: 45, maxRotation: 45 },
+          ticks: { color: '#64748b', autoSkip: false, minRotation: 35, maxRotation: 35 },
           grid: { display: false }
         },
         y: {
-          title: { display: true, text: '억원', color: '#9db3d4' },
-          ticks: { color: '#9db3d4' },
-          grid: { color: 'rgba(126,154,205,0.10)' }
+          title: { display: true, text: '억원', color: '#64748b', font: { weight: '700' } },
+          ticks: { color: '#64748b' },
+          grid: { color: 'rgba(148,163,184,0.14)', drawBorder: false }
         }
       }
     }
@@ -260,7 +268,6 @@ async function unlock() {
   const hash = await sha256(input);
 
   if (hash === window.DASHBOARD_CONFIG.passwordHash) {
-    localStorage.setItem('dashboard_unlocked', '1');
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
     msg.textContent = '';
@@ -269,8 +276,8 @@ async function unlock() {
   }
 }
 
-async function init() {
-  document.getElementById('passwordHint').textContent = window.DASHBOARD_CONFIG.passwordHint || '';
+async function initDashboard() {
+  document.getElementById('passwordHint').textContent = window.DASHBOARD_CONFIG.passwordHint;
   document.getElementById('unlockBtn').addEventListener('click', unlock);
   document.getElementById('passwordInput').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') unlock();
@@ -278,14 +285,12 @@ async function init() {
 
   const res = await fetch('data.json');
   dashboardData = await res.json();
-
-  if (localStorage.getItem('dashboard_unlocked') === '1') {
-    document.getElementById('gate').classList.add('hidden');
-    document.getElementById('app').classList.remove('hidden');
-  }
-
   buildEntityButtons();
-  selectEntity(dashboardData.defaultEntity || dashboardData.entities[0].name);
+
+  const defaultEntity = dashboardData.entities.find(e => e.name === '연합 총계')
+    ? '연합 총계'
+    : dashboardData.entities[0].name;
+  selectEntity(defaultEntity);
 }
 
-window.addEventListener('DOMContentLoaded', init);
+initDashboard();

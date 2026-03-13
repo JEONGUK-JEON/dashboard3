@@ -6,7 +6,7 @@
   <title>매출 분석 대시보드</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <script>
     window.DASHBOARD_CONFIG = {
@@ -31,76 +31,69 @@
   </div>
 
   <div id="app" class="app hidden">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">📊</div>
-        <div>
-          <div class="brand-title">매출 분석 대시보드</div>
-          <div class="brand-sub" id="latestMonthLabel">기준월</div>
+    <header class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">Sales Dashboard</div>
+        <h1>매출분석 대시보드</h1>
+        <p>2026년 2월 기준 월별 매출 추이와 12M_MA를 확인합니다.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-meta">
+          <span class="meta-label">기준월</span>
+          <strong id="latestMonthLabel">2026-02</strong>
         </div>
       </div>
+    </header>
 
-      <section class="sidebar-card">
-        <div class="side-title">법인 선택</div>
-        <div id="entityButtons" class="entity-buttons"></div>
-      </section>
-
-      <section class="sidebar-card">
-        <div class="side-title">선택 법인 정보</div>
-        <div class="detail-list">
-          <div class="detail-item"><span>법인명</span><strong id="selectedEntityName">-</strong></div>
-          <div class="detail-item"><span>구분</span><strong id="selectedEntityGroup">-</strong></div>
-          <div class="detail-item"><span>기준월</span><strong id="selectedMonth">-</strong></div>
-        </div>
-      </section>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
+    <section class="filter-panel">
+      <div class="filter-header">
         <div>
-          <h1>매출분석 대시보드</h1>
-          <p>월별매출 추이와 12M_MA를 기준으로 핵심 KPI를 확인합니다.</p>
+          <h2>법인 선택</h2>
+          <p>상단 버튼을 클릭하면 해당 법인의 KPI와 추이가 갱신됩니다.</p>
         </div>
-      </header>
+      </div>
+      <div id="entityButtons" class="entity-buttons top-buttons"></div>
+    </section>
 
-      <section class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">당월매출</div>
-          <div class="kpi-value" id="kpiCurrentSales">-</div>
-          <div class="kpi-sub">기준월 매출</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">전년동월대비</div>
-          <div class="kpi-value" id="kpiYoY">-</div>
-          <div class="kpi-sub">기준월 vs 전년동월</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">누계</div>
-          <div class="kpi-value" id="kpiYTD">-</div>
-          <div class="kpi-sub">2026.01 ~ 기준월</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">작년대비누계</div>
-          <div class="kpi-value" id="kpiPriorYTD">-</div>
-          <div class="kpi-sub">2025 동일기간 누계</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">작년 총매출</div>
-          <div class="kpi-value" id="kpiPriorYearTotal">-</div>
-          <div class="kpi-sub">2025년 연간 합계</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">12개월 평균</div>
-          <div class="kpi-value" id="kpiMA12">-</div>
-          <div class="kpi-sub">최근 12개월 평균</div>
-        </div>
-      </section>
+    <section class="kpi-grid">
+      <div class="kpi-card accent-blue">
+        <div class="kpi-label">당월매출</div>
+        <div class="kpi-value" id="kpiCurrentSales">-</div>
+        <div class="kpi-sub">기준월 매출</div>
+      </div>
+      <div class="kpi-card accent-sky">
+        <div class="kpi-label">전년동월대비</div>
+        <div class="kpi-value" id="kpiYoY">-</div>
+        <div class="kpi-sub">기준월 vs 전년동월</div>
+      </div>
+      <div class="kpi-card accent-teal">
+        <div class="kpi-label">누계</div>
+        <div class="kpi-value" id="kpiYTD">-</div>
+        <div class="kpi-sub">2026.01 ~ 기준월</div>
+      </div>
+      <div class="kpi-card accent-violet">
+        <div class="kpi-label">작년대비누계</div>
+        <div class="kpi-value" id="kpiPriorYTD">-</div>
+        <div class="kpi-sub">2025 동일기간 누계</div>
+      </div>
+      <div class="kpi-card accent-orange">
+        <div class="kpi-label">작년 총매출</div>
+        <div class="kpi-value" id="kpiPriorYearTotal">-</div>
+        <div class="kpi-sub">2025년 연간 합계</div>
+      </div>
+      <div class="kpi-card accent-green">
+        <div class="kpi-label">12개월 평균</div>
+        <div class="kpi-value" id="kpiMA12">-</div>
+        <div class="kpi-sub">최근 12개월 평균</div>
+      </div>
+    </section>
 
-      <section class="panel">
+    <section class="main-grid">
+      <section class="panel trend-panel">
         <div class="panel-header">
           <div>
             <h2>월별매출 추이</h2>
-            <p id="trendSubtitle">선택 법인 기준</p>
+            <p id="trendSubtitle">선택 법인 기준 월별 매출 및 12M_MA</p>
           </div>
           <span class="unit-badge">단위: 억원</span>
         </div>
@@ -109,25 +102,26 @@
         </div>
       </section>
 
-      <section class="bottom-grid">
-        <section class="panel">
+      <aside class="side-panels">
+        <section class="panel compact">
           <div class="panel-header">
             <div>
-              <h2>법인별 당월매출 비교</h2>
-              <p id="compareSubtitle">기준월 전체 법인 비교</p>
+              <h2>선택 법인 정보</h2>
+              <p>현재 선택 상태</p>
             </div>
-            <span class="unit-badge">단위: 억원</span>
           </div>
-          <div class="chart-wrap">
-            <canvas id="barChart"></canvas>
+          <div class="detail-list">
+            <div class="detail-item"><span>법인명</span><strong id="selectedEntityName">-</strong></div>
+            <div class="detail-item"><span>구분</span><strong id="selectedEntityGroup">-</strong></div>
+            <div class="detail-item"><span>기준월</span><strong id="selectedMonth">-</strong></div>
           </div>
         </section>
 
-        <section class="panel">
+        <section class="panel compact">
           <div class="panel-header">
             <div>
               <h2>최근 12개월 상세</h2>
-              <p>최근 구간의 매출과 12M_MA</p>
+              <p>최근 12개월 매출과 12M_MA</p>
             </div>
           </div>
           <div class="table-wrap">
@@ -143,8 +137,21 @@
             </table>
           </div>
         </section>
-      </section>
-    </main>
+      </aside>
+    </section>
+
+    <section class="panel lower-panel">
+      <div class="panel-header">
+        <div>
+          <h2>법인별 당월매출 비교</h2>
+          <p id="compareSubtitle">기준월 전체 법인 비교</p>
+        </div>
+        <span class="unit-badge">단위: 억원</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="barChart"></canvas>
+      </div>
+    </section>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
