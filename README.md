@@ -1,10 +1,1 @@
-# Dashboard update
-
-Replace the files in your GitHub Pages repository root with these files.
-
-- index.html
-- styles.css
-- script.js
-- data.json
-
-Password is configured via SHA-256 hash in index.html.
+이 버전은 GitHub 주소 기준 최종 화면을 더 촘촘하게 다듬은 압축형 레이아웃입니다. 기존 저장소 루트 파일을 덮어쓰기하면 됩니다.
