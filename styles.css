@@ -140,3 +140,6 @@ tbody tr:hover{background:#f9fbff}
   .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .gate-form{flex-direction:column}
 }
+.compact-chart {
+  height: 280px;
+}
