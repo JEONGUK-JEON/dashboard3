@@ -219,15 +219,18 @@ function renderShareChart() {
       maintainAspectRatio: false,
       cutout: '62%',
       plugins: {
-        legend: {
-          position: 'right',
-          labels: {
-            color: '#334155',
-            usePointStyle: true,
-            boxWidth: 10,
-            padding: 14
-          }
-        },
+       legend: {
+  position: 'bottom',
+  labels: {
+    color: '#334155',
+    usePointStyle: true,
+    boxWidth: 10,
+    padding: 12,
+    font: {
+      size: 11
+    }
+  }
+},
         tooltip: {
           backgroundColor: 'rgba(15,23,42,0.92)',
           callbacks: {
