@@ -23,10 +23,10 @@
       <p class="gate-desc">접속 비밀번호를 입력하세요.</p>
       <div class="gate-form">
         <input id="passwordInput" type="password" placeholder="비밀번호" />
-        <button id="unlockBtn" type="button">입장</button>
+        <button id="unlockBtn">입장</button>
       </div>
       <p id="gateMsg" class="gate-msg"></p>
-      <p class="gate-hint hidden" id="gateHintWrap">힌트: <span id="passwordHint"></span></p>
+      <p class="gate-hint">힌트: <span id="passwordHint"></span></p>
     </div>
   </div>
 
@@ -46,13 +46,30 @@
     </header>
 
     <section class="filter-panel">
-      <div class="filter-header">
-        <div>
-          <h2>법인 선택</h2>
-          <p>상단 그룹 또는 하위 법인 버튼을 클릭하면 대시보드가 갱신됩니다.</p>
+      <div class="filter-layout">
+        <div class="filter-left">
+          <div class="filter-header">
+            <div>
+              <h2>법인 선택</h2>
+              <p>상단 그룹 또는 하위 법인 버튼을 클릭하면 대시보드가 갱신됩니다.</p>
+            </div>
+          </div>
+          <div id="entityButtons" class="entity-buttons top-buttons"></div>
         </div>
+
+        <aside class="filter-summary">
+          <div class="filter-summary-header">
+            <h3>선택 법인 정보</h3>
+            <p>현재 선택 상태</p>
+          </div>
+
+          <div class="detail-list compact-detail">
+            <div class="detail-item"><span>법인명</span><strong id="selectedEntityName">-</strong></div>
+            <div class="detail-item"><span>구분</span><strong id="selectedEntityGroup">-</strong></div>
+            <div class="detail-item"><span>기준월</span><strong id="selectedMonth">-</strong></div>
+          </div>
+        </aside>
       </div>
-      <div id="entityButtons" class="entity-buttons top-buttons"></div>
     </section>
 
     <section class="kpi-grid">
@@ -69,17 +86,17 @@
       <div class="kpi-card accent-teal">
         <div class="kpi-label">누계</div>
         <div class="kpi-value" id="kpiYTD">-</div>
-        <div class="kpi-sub">당해 1월 ~ 기준월</div>
+        <div class="kpi-sub">2026.01 ~ 기준월</div>
       </div>
       <div class="kpi-card accent-violet">
-        <div class="kpi-label">작년대비누계</div>
+        <div class="kpi-label">작년누계</div>
         <div class="kpi-value" id="kpiPriorYTD">-</div>
-        <div class="kpi-sub">전년 동일기간 누계</div>
+        <div class="kpi-sub">2025 동일기간 누계</div>
       </div>
       <div class="kpi-card accent-orange">
         <div class="kpi-label">작년 총매출</div>
         <div class="kpi-value" id="kpiPriorYearTotal">-</div>
-        <div class="kpi-sub">전년 연간 합계</div>
+        <div class="kpi-sub">2025년 연간 합계</div>
       </div>
       <div class="kpi-card accent-green">
         <div class="kpi-label">12개월 평균</div>
@@ -106,20 +123,6 @@
         <section class="panel compact">
           <div class="panel-header">
             <div>
-              <h2>선택 법인 정보</h2>
-              <p>현재 선택 상태</p>
-            </div>
-          </div>
-          <div class="detail-list">
-            <div class="detail-item"><span>법인명</span><strong id="selectedEntityName">-</strong></div>
-            <div class="detail-item"><span>구분</span><strong id="selectedEntityGroup">-</strong></div>
-            <div class="detail-item"><span>기준월</span><strong id="selectedMonth">-</strong></div>
-          </div>
-        </section>
-
-        <section class="panel compact share-panel">
-          <div class="panel-header">
-            <div>
               <h2>법인별 점유율</h2>
               <p id="shareSubtitle">기준월 전체 법인 매출 비중</p>
             </div>
@@ -137,7 +140,7 @@
               <p>최근 12개월 매출과 12M_MA</p>
             </div>
           </div>
-          <div class="table-wrap">
+          <div class="table-wrap short-table">
             <table>
               <thead>
                 <tr>
