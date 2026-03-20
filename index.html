@@ -26,7 +26,7 @@
         <button id="unlockBtn">입장</button>
       </div>
       <p id="gateMsg" class="gate-msg"></p>
-      <p class="gate-hint">힌트: <span id="passwordHint"></span></p>
+      <p class="gate-hint hidden" id="gateHintWrap">힌트: <span id="passwordHint"></span></p>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
       <div class="hero-left">
         <div class="hero-badge">Sales Dashboard</div>
         <h1>매출분석 대시보드</h1>
-        <p>2026년 2월 기준 월별 매출 추이와 12개월 이동평균을 확인합니다.</p>
+        <p>2026년 2월 기준 월별 매출 추이와 12M_MA를 확인합니다.</p>
       </div>
       <div class="hero-right">
         <div class="hero-meta">
@@ -62,7 +62,6 @@
             <h3>선택 법인 정보</h3>
             <p>현재 선택 상태</p>
           </div>
-
           <div class="detail-list compact-detail">
             <div class="detail-item"><span>법인명</span><strong id="selectedEntityName">-</strong></div>
             <div class="detail-item"><span>구분</span><strong id="selectedEntityGroup">-</strong></div>
@@ -73,36 +72,12 @@
     </section>
 
     <section class="kpi-grid">
-      <div class="kpi-card accent-blue">
-        <div class="kpi-label">당월매출</div>
-        <div class="kpi-value" id="kpiCurrentSales">-</div>
-        <div class="kpi-sub">기준월 매출</div>
-      </div>
-      <div class="kpi-card accent-sky">
-        <div class="kpi-label">전년동월대비</div>
-        <div class="kpi-value" id="kpiYoY">-</div>
-        <div class="kpi-sub">기준월 vs 전년동월</div>
-      </div>
-      <div class="kpi-card accent-teal">
-        <div class="kpi-label">누계</div>
-        <div class="kpi-value" id="kpiYTD">-</div>
-        <div class="kpi-sub">2026.01 ~ 기준월</div>
-      </div>
-      <div class="kpi-card accent-violet">
-        <div class="kpi-label">작년누계</div>
-        <div class="kpi-value" id="kpiPriorYTD">-</div>
-        <div class="kpi-sub">2025 동일기간 누계</div>
-      </div>
-      <div class="kpi-card accent-orange">
-        <div class="kpi-label">작년 총매출</div>
-        <div class="kpi-value" id="kpiPriorYearTotal">-</div>
-        <div class="kpi-sub">2025년 연간 합계</div>
-      </div>
-      <div class="kpi-card accent-green">
-        <div class="kpi-label">12개월 평균</div>
-        <div class="kpi-value" id="kpiMA12">-</div>
-        <div class="kpi-sub">최근 12개월 평균</div>
-      </div>
+      <div class="kpi-card accent-blue"><div class="kpi-label">당월매출</div><div class="kpi-value" id="kpiCurrentSales">-</div><div class="kpi-sub">기준월 매출</div></div>
+      <div class="kpi-card accent-sky"><div class="kpi-label">전년동월대비</div><div class="kpi-value" id="kpiYoY">-</div><div class="kpi-sub">기준월 vs 전년동월</div></div>
+      <div class="kpi-card accent-teal"><div class="kpi-label">누계</div><div class="kpi-value" id="kpiYTD">-</div><div class="kpi-sub">당해 1월 ~ 기준월</div></div>
+      <div class="kpi-card accent-violet"><div class="kpi-label">작년대비누계</div><div class="kpi-value" id="kpiPriorYTD">-</div><div class="kpi-sub">전년 동일기간 누계</div></div>
+      <div class="kpi-card accent-orange"><div class="kpi-label">작년 총매출</div><div class="kpi-value" id="kpiPriorYearTotal">-</div><div class="kpi-sub">전년 연간 합계</div></div>
+      <div class="kpi-card accent-green"><div class="kpi-label">12개월 평균</div><div class="kpi-value" id="kpiMA12">-</div><div class="kpi-sub">최근 12개월 평균</div></div>
     </section>
 
     <section class="main-grid">
@@ -114,9 +89,7 @@
           </div>
           <span class="unit-badge">단위: 억원</span>
         </div>
-        <div class="chart-wrap tall">
-          <canvas id="trendChart"></canvas>
-        </div>
+        <div class="chart-wrap tall"><canvas id="trendChart"></canvas></div>
       </section>
 
       <aside class="side-panels">
@@ -128,9 +101,7 @@
             </div>
             <span class="unit-badge">단위: %</span>
           </div>
-          <div class="chart-wrap compact-chart">
-            <canvas id="shareChart"></canvas>
-          </div>
+          <div class="chart-wrap compact-chart"><canvas id="shareChart"></canvas></div>
         </section>
 
         <section class="panel compact">
@@ -140,15 +111,9 @@
               <p>최근 12개월 매출과 12M_MA</p>
             </div>
           </div>
-          <div class="table-wrap short-table">
+          <div class="table-wrap">
             <table>
-              <thead>
-                <tr>
-                  <th>월</th>
-                  <th>매출</th>
-                  <th>12M_MA</th>
-                </tr>
-              </thead>
+              <thead><tr><th>월</th><th>매출</th><th>12M_MA</th></tr></thead>
               <tbody id="detailTableBody"></tbody>
             </table>
           </div>
@@ -164,9 +129,7 @@
         </div>
         <span class="unit-badge">단위: 억원</span>
       </div>
-      <div class="chart-wrap">
-        <canvas id="barChart"></canvas>
-      </div>
+      <div class="chart-wrap short"><canvas id="barChart"></canvas></div>
     </section>
   </div>
 
