@@ -102,7 +102,7 @@ button,input{font-family:inherit}
 .kpi-value{font-size:33px;font-weight:800;letter-spacing:-.02em;color:#0f172a}
 .kpi-sub{margin-top:8px;color:var(--muted);font-size:12px}
 
-.main-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:16px}
+.main-grid{display:grid;grid-template-columns:1.7fr 1.1fr;gap:20px}
 .panel{padding:18px 18px 16px}
 .panel.compact{padding-bottom:10px}
 .panel-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
