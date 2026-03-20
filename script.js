@@ -174,6 +174,74 @@ function renderTrendChart(entity) {
     }
   });
 }
+function renderShareChart() {
+  const latestMonth = dashboardData.latestMonth;
+
+  const shareData = dashboardData.entities
+    .filter(entity => entity.name !== '연합 총계')
+    .map(entity => {
+      const point = getValueByMonth(entity, latestMonth);
+      return {
+        name: entity.name,
+        value: point ? point.sales_eok : 0
+      };
+    })
+    .filter(item => item.value > 0);
+
+  const total = shareData.reduce((sum, item) => sum + item.value, 0);
+
+  const ctx = document.getElementById('shareChart');
+  if (shareChart) shareChart.destroy();
+
+  shareChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: shareData.map(d => d.name),
+      datasets: [{
+        data: shareData.map(d => d.value),
+        backgroundColor: [
+          '#2f6bff',
+          '#11b7a4',
+          '#8b5cf6',
+          '#f59e0b',
+          '#ef4444',
+          '#06b6d4',
+          '#84cc16',
+          '#f97316'
+        ],
+        borderColor: '#ffffff',
+        borderWidth: 2,
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: {
+            color: '#334155',
+            usePointStyle: true,
+            boxWidth: 10,
+            padding: 14
+          }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15,23,42,0.92)',
+          callbacks: {
+            label: (ctx) => {
+              const value = ctx.parsed;
+              const pct = total ? (value / total * 100) : 0;
+              return `${ctx.label}: ${fmtEok(value)} (${pct.toFixed(1)}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
 
 function renderBarChart() {
   const latestMonth = dashboardData.latestMonth;
@@ -254,6 +322,7 @@ function selectEntity(name) {
   renderKpis(entity);
   renderTrendChart(entity);
   renderBarChart();
+  renderShareChart();
   renderDetailTable(entity);
 }
 
