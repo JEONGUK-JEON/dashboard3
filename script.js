@@ -2,6 +2,7 @@ let dashboardData = null;
 let selectedEntityName = null;
 let trendChart = null;
 let barChart = null;
+let shareChart = null;
 
 const numberFmt = new Intl.NumberFormat('ko-KR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const percentFmt = new Intl.NumberFormat('ko-KR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
