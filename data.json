@@ -44,8 +44,8 @@
   "entities": [
     {
       "name": "BEX",
-      "group": "국내",
-      "category": "유통",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -279,8 +279,8 @@
     },
     {
       "name": "범우화학",
-      "group": "국내",
-      "category": "총괄",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -514,8 +514,8 @@
     },
     {
       "name": "㈜범우",
-      "group": "국내",
-      "category": "총괄",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -749,8 +749,8 @@
     },
     {
       "name": "KCC",
-      "group": "국내",
-      "category": "",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -984,8 +984,8 @@
     },
     {
       "name": "BIT",
-      "group": "국내",
-      "category": "",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -1219,8 +1219,8 @@
     },
     {
       "name": "통합구매",
-      "group": "국내",
-      "category": "",
+      "group": "국내법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -1454,8 +1454,8 @@
     },
     {
       "name": "국내법인",
-      "group": "국내",
-      "category": "소계",
+      "group": "국내법인",
+      "category": "group",
       "months": [
         {
           "month": "2023-01",
@@ -1689,8 +1689,8 @@
     },
     {
       "name": "BWK",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -1924,8 +1924,8 @@
     },
     {
       "name": "SYTK",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -2159,8 +2159,8 @@
     },
     {
       "name": "VBC",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -2394,8 +2394,8 @@
     },
     {
       "name": "YBI",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -2629,8 +2629,8 @@
     },
     {
       "name": "BWI",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -2864,8 +2864,8 @@
     },
     {
       "name": "BWA",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -3099,8 +3099,8 @@
     },
     {
       "name": "BWA(USA)",
-      "group": "해외",
-      "category": "",
+      "group": "해외법인",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -3334,8 +3334,8 @@
     },
     {
       "name": "해외법인",
-      "group": "해외",
-      "category": "소계",
+      "group": "해외법인",
+      "category": "group",
       "months": [
         {
           "month": "2023-01",
@@ -3569,8 +3569,8 @@
     },
     {
       "name": "범우케미칼",
-      "group": "계열",
-      "category": "",
+      "group": "판매사",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -3804,8 +3804,8 @@
     },
     {
       "name": "㈜범우켐",
-      "group": "계열",
-      "category": "",
+      "group": "판매사",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -4039,8 +4039,8 @@
     },
     {
       "name": "범우화인켐",
-      "group": "계열",
-      "category": "",
+      "group": "판매사",
+      "category": "법인",
       "months": [
         {
           "month": "2023-01",
@@ -4274,8 +4274,8 @@
     },
     {
       "name": "판매사",
-      "group": "계열",
-      "category": "소계",
+      "group": "판매사",
+      "category": "group",
       "months": [
         {
           "month": "2023-01",
@@ -4510,7 +4510,7 @@
     {
       "name": "연합 총계",
       "group": "전체",
-      "category": "총계",
+      "category": "total",
       "months": [
         {
           "month": "2023-01",
