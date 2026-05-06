@@ -1,6 +1,6 @@
 {
   "title": "매출 분석 대시보드",
-  "latestMonth": "2026-03",
+  "latestMonth": "2026-04",
   "months": [
     "2023-01",
     "2023-02",
@@ -40,13 +40,14 @@
     "2025-12",
     "2026-01",
     "2026-02",
-    "2026-03"
+    "2026-03",
+    "2026-04"
   ],
   "entities": [
     {
       "name": "BEX",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "유통",
       "months": [
         {
           "month": "2023-01",
@@ -280,14 +281,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 20.0,
-          "ma12_eok": 19.2248
+          "ma12_eok": 19.2167
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 15.0,
+          "ma12_eok": 18.2
         }
       ]
     },
     {
       "name": "범우화학",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "총괄",
       "months": [
         {
           "month": "2023-01",
@@ -521,14 +528,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 103.0,
-          "ma12_eok": 96.2629
+          "ma12_eok": 96.25
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 151.5,
+          "ma12_eok": 100.3
         }
       ]
     },
     {
       "name": "㈜범우",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "총괄",
       "months": [
         {
           "month": "2023-01",
@@ -762,14 +775,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 30.0,
-          "ma12_eok": 29.4345
+          "ma12_eok": 29.4417
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 35.0,
+          "ma12_eok": 30.3
         }
       ]
     },
     {
       "name": "KCC",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -1003,14 +1022,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 75.0,
-          "ma12_eok": 61.1799
+          "ma12_eok": 61.1833
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 89.9,
+          "ma12_eok": 63.3
         }
       ]
     },
     {
       "name": "BIT",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -1244,14 +1269,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 8.0,
-          "ma12_eok": 8.2539
+          "ma12_eok": 8.2583
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 10.5,
+          "ma12_eok": 8.4
         }
       ]
     },
     {
       "name": "통합구매",
-      "group": "국내법인",
-      "category": "법인",
+      "group": "국내",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -1485,14 +1516,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 36.0,
-          "ma12_eok": 48.2238
+          "ma12_eok": 48.2167
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 34.7,
+          "ma12_eok": 45.6
         }
       ]
     },
     {
       "name": "국내법인",
-      "group": "국내법인",
-      "category": "group",
+      "group": "국내",
+      "category": "소계",
       "months": [
         {
           "month": "2023-01",
@@ -1726,14 +1763,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 280.0,
-          "ma12_eok": 271.4346
+          "ma12_eok": 271.4333
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 342.1,
+          "ma12_eok": 274.9
         }
       ]
     },
     {
       "name": "BWK",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -1967,14 +2010,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 19.0,
-          "ma12_eok": 17.9294
+          "ma12_eok": 17.925
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 21.5,
+          "ma12_eok": 18.2
         }
       ]
     },
     {
       "name": "SYTK",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -2208,14 +2257,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 3.0,
-          "ma12_eok": 2.1587
+          "ma12_eok": 2.1667
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 2.7,
+          "ma12_eok": 2.2
         }
       ]
     },
     {
       "name": "VBC",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -2449,14 +2504,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 44.0,
-          "ma12_eok": 31.6412
+          "ma12_eok": 31.65
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 49.5,
+          "ma12_eok": 33.7
         }
       ]
     },
     {
       "name": "YBI",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -2690,14 +2751,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 30.0,
-          "ma12_eok": 25.9866
+          "ma12_eok": 25.9917
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 38.9,
+          "ma12_eok": 26.6
         }
       ]
     },
     {
       "name": "BWI",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -2931,14 +2998,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 3.0,
-          "ma12_eok": 2.5673
+          "ma12_eok": 2.5667
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 3.4,
+          "ma12_eok": 2.7
         }
       ]
     },
     {
       "name": "BWA",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -3172,14 +3245,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 9.0,
-          "ma12_eok": 7.9595
+          "ma12_eok": 7.9583
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 6.5,
+          "ma12_eok": 7.9
         }
       ]
     },
     {
       "name": "BWA(USA)",
-      "group": "해외법인",
-      "category": "법인",
+      "group": "해외",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -3413,14 +3492,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 5.0,
-          "ma12_eok": 3.9395
+          "ma12_eok": 3.95
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 3.6,
+          "ma12_eok": 4.0
         }
       ]
     },
     {
       "name": "해외법인",
-      "group": "해외법인",
-      "category": "group",
+      "group": "해외",
+      "category": "소계",
       "months": [
         {
           "month": "2023-01",
@@ -3654,14 +3739,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 113.0,
-          "ma12_eok": 92.0988
+          "ma12_eok": 92.1083
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 126.2,
+          "ma12_eok": 95.0
         }
       ]
     },
     {
       "name": "범우케미칼",
-      "group": "판매사",
-      "category": "법인",
+      "group": "계열",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -3895,14 +3986,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 11.0,
-          "ma12_eok": 11.2099
+          "ma12_eok": 11.2083
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 13.7,
+          "ma12_eok": 11.3
         }
       ]
     },
     {
       "name": "㈜범우켐",
-      "group": "판매사",
-      "category": "법인",
+      "group": "계열",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -4136,14 +4233,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 6.0,
-          "ma12_eok": 5.9566
+          "ma12_eok": 5.975
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 7.1,
+          "ma12_eok": 6.0
         }
       ]
     },
     {
       "name": "범우화인켐",
-      "group": "판매사",
-      "category": "법인",
+      "group": "계열",
+      "category": "",
       "months": [
         {
           "month": "2023-01",
@@ -4377,14 +4480,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 4.0,
-          "ma12_eok": 2.4021
+          "ma12_eok": 2.4
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 3.2,
+          "ma12_eok": 2.4
         }
       ]
     },
     {
       "name": "판매사",
-      "group": "판매사",
-      "category": "group",
+      "group": "계열",
+      "category": "소계",
       "months": [
         {
           "month": "2023-01",
@@ -4618,14 +4727,20 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 21.0,
-          "ma12_eok": 19.6519
+          "ma12_eok": 19.6583
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 23.9,
+          "ma12_eok": 19.8
         }
       ]
     },
     {
       "name": "연합 총계",
       "group": "전체",
-      "category": "total",
+      "category": "총계",
       "months": [
         {
           "month": "2023-01",
@@ -4859,7 +4974,13 @@
           "month": "2026-03",
           "label": "2026.03",
           "sales_eok": 414.0,
-          "ma12_eok": 383.1854
+          "ma12_eok": 383.1833
+        },
+        {
+          "month": "2026-04",
+          "label": "2026.04",
+          "sales_eok": 492.2,
+          "ma12_eok": 389.7
         }
       ]
     }
