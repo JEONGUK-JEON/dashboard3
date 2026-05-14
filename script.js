@@ -281,15 +281,44 @@ async function unlock() {
   }
 }
 
-async function initDashboard() {
-  const hintWrap = document.getElementById('gateHintWrap');
-  const hintText = document.getElementById('passwordHint');
-  if (window.DASHBOARD_CONFIG.passwordHint) {
-    hintText.textContent = window.DASHBOARD_CONFIG.passwordHint;
-    hintWrap.classList.remove('hidden');
+async function checkAutoLogin() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('v');
+  const user = urlParams.get('u');
+  
+  if (token && user) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}${mm}${dd}`;
+    
+    // 파이썬과 동일한 방식: "buhmwoo2026!@#" + 유저명 + YYYYMMDD
+    const expectedHash = await sha256(`buhmwoo2026!@#${user}${todayStr}`);
+    
+    if (token === expectedHash) {
+      document.getElementById('gate').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+      return true; // 자동 로그인 성공
+    }
   }
-  document.getElementById('unlockBtn').addEventListener('click', unlock);
-  document.getElementById('passwordInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
+  return false;
+}
+
+async function initDashboard() {
+  const isAutoLoggedIn = await checkAutoLogin();
+  
+  if (!isAutoLoggedIn) {
+    const hintWrap = document.getElementById('gateHintWrap');
+    const hintText = document.getElementById('passwordHint');
+    if (window.DASHBOARD_CONFIG.passwordHint) {
+      hintText.textContent = window.DASHBOARD_CONFIG.passwordHint;
+      hintWrap.classList.remove('hidden');
+    }
+    document.getElementById('unlockBtn').addEventListener('click', unlock);
+    document.getElementById('passwordInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
+  }
+  
   const res = await fetch('data.json');
   dashboardData = await res.json();
   buildEntityButtons();
