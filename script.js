@@ -322,8 +322,46 @@ async function initDashboard() {
   const res = await fetch('data.json');
   dashboardData = await res.json();
   buildEntityButtons();
+  
+  // 💡 Streamlit 연동용 제어 버튼 초기화 실행
+  setupAppControls();
+  
   const defaultEntity = findEntity('연합 총계') ? '연합 총계' : dashboardData.entities[0].name;
   selectEntity(defaultEntity);
+}
+
+// ── Streamlit 대시보드 리다이렉트 및 로그아웃 연동 처리 ──
+function setupAppControls() {
+  const btnBack = document.getElementById('btnBackToMain');
+  const btnLogout = document.getElementById('btnAppLogout');
+
+  if (btnBack) {
+    btnBack.addEventListener('click', () => {
+      // document.referrer가 존재할 경우 이전 Streamlit으로 복귀, 없으면 브라우저 뒤로가기 실행
+      if (document.referrer) {
+        window.location.href = document.referrer;
+      } else {
+        window.history.back();
+      }
+    });
+  }
+
+  if (btnLogout) {
+    btnLogout.addEventListener('click', () => {
+      // 복귀 시 세션을 완전히 청소하기 위해 logout=true 쿼리를 결합하여 연동
+      let target = "";
+      if (document.referrer) {
+        target = document.referrer;
+      } else {
+        // 백업으로 히스토리 뒤로가기
+        window.history.back();
+        return;
+      }
+      
+      const separator = target.includes('?') ? '&' : '?';
+      window.location.href = target + separator + "logout=true";
+    });
+  }
 }
 
 initDashboard();

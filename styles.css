@@ -108,3 +108,38 @@ canvas{max-width:100%}
   .gate-form{flex-direction:column}
   .entity-subgroup{grid-template-columns:1fr}
 }
+
+/* ── Streamlit 연동 제어 버튼 프리미엄 스타일 ── */
+.hero-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+.control-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow);
+}
+.control-btn:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+.logout-btn {
+  border-color: #fca5a5;
+  color: #dc2626;
+  background: #fff5f5;
+}
+.logout-btn:hover {
+  background: #fee2e2;
+}
