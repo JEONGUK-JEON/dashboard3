@@ -335,11 +335,16 @@ function setupAppControls() {
   const btnBack = document.getElementById('btnBackToMain');
   const btnLogout = document.getElementById('btnAppLogout');
 
+  // URL 파라미터에서 명시적인 복귀 주소 추출 (안전한 리디렉션을 위해)
+  const urlParams = new URLSearchParams(window.location.search);
+  const returnUrl = urlParams.get('return_url');
+
   if (btnBack) {
     btnBack.addEventListener('click', () => {
-      // document.referrer가 존재할 경우 이전 Streamlit으로 복귀, 없으면 브라우저 뒤로가기 실행
-      if (document.referrer) {
-        window.location.href = document.referrer;
+      // 명시적인 return_url이 있으면 iframe을 탈출하여 최상단에서 이동, 없으면 referrer 사용
+      let target = returnUrl || document.referrer;
+      if (target) {
+        window.top.location.href = target;
       } else {
         window.history.back();
       }
@@ -349,17 +354,14 @@ function setupAppControls() {
   if (btnLogout) {
     btnLogout.addEventListener('click', () => {
       // 복귀 시 세션을 완전히 청소하기 위해 logout=true 쿼리를 결합하여 연동
-      let target = "";
-      if (document.referrer) {
-        target = document.referrer;
-      } else {
-        // 백업으로 히스토리 뒤로가기
+      let target = returnUrl || document.referrer;
+      if (!target) {
         window.history.back();
         return;
       }
       
       const separator = target.includes('?') ? '&' : '?';
-      window.location.href = target + separator + "logout=true";
+      window.top.location.href = target + separator + "logout=true";
     });
   }
 }
